@@ -27,6 +27,11 @@ public class ExtSettings {
 
     private ExtSettings() {}
 
+    public static final IntSetting AUTO_REBOOT_TIMEOUT = new IntSetting(
+            Setting.Scope.GLOBAL, Settings.Global.AUTO_REBOOT_TIMEOUT,
+            // default value: 18 hours
+            (int) TimeUnit.HOURS.toMillis(18));
+
     public static Function<Context, Boolean> defaultBool(@BoolRes int res) {
         return ctx -> ctx.getResources().getBoolean(res);
     }
